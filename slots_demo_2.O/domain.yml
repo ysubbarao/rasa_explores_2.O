@@ -1,0 +1,78 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - buy_phone_laptop
+  - latest_news_phones_laptops
+  - give_information
+  
+entities:
+  - category
+  - RAM
+  - battery
+  - camera
+slots:
+  category:
+    type: text
+  RAM:
+    type: text
+  battery:
+    type: text
+  camera:
+    type: text   
+      
+actions:
+  # - utter_greet  
+  # - utter_cheer_up
+  # - utter_did_that_help
+  # - utter_happy
+  # - utter_goodbye
+  # - utter_iamabot
+  # - utter_how_can_I_help
+  # - utter_ask_ram
+  # - utter_ask_camera
+  # - utter_ask_battery
+  - action_search
+  - action_show_latest_news
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you? I'm your shopping bot. I can help you with finding a phone or laptop and providing latest news for them!"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_how_can_I_help:
+  - text: Welcome. I'm your shopping bot. I can help you with finding a phone or laptop and providing latest news for them!
+  
+  utter_ask_ram:
+  - text: How much GB RAM are you looking for?
+
+  utter_ask_camera:
+  - text: What megapixel camera are you looking for?
+  
+  utter_ask_battery:
+  - text: How much battery capacity are you looking for in the mobile?
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

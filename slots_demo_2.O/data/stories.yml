@@ -1,0 +1,65 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: collect latest information from bot  #name of the story for debugging purpose
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: buy_phone_laptop
+    entities: 
+    - category: "phone"
+  - action: utter_ask_ram
+  - intent: give_information
+    entities: 
+    - RAM: "8 GB RAM"
+  - action: utter_ask_camera
+  - intent: give_information
+    entities: 
+    - camera: "50 megapixel"
+  - action: utter_ask_battery
+  - intent: give_information
+    entities: 
+    - battery : "3500 mah"
+  - action: action_search
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: collect latest news info #name of the story for debugging purpose
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: latest_news_phones_laptops
+    entities: 
+    - category: "phone"
+  - action: action_show_latest_news
+  - intent: goodbye
+  - action: utter_goodbye
+   
